@@ -6,10 +6,13 @@
 * No duplications in sellAllToAll_accounts
 """
 
-### NOTES ###
+### NOTES & TODOs ###
 """
-There is an additional validation check that can be done regarding the order time. If 2 orders have the same ID but have 
-    different checkout time, we should raise an error.
+* There is an additional validation check that can be done regarding the order time. If 2 orders have the same ID but have 
+     different checkout time, we should raise an error.
+* Strings should be extracted to consts
+* Files paths should be exported to CLI arguments
+* Should add support for situation where orders appear on one CSV but not on the other
 """
 
 import jsons
