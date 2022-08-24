@@ -1,0 +1,4 @@
+{"orderId":"99cb91","checkoutTime":"1548979200","amountUSD":"23.35","accountOwner":{"firstName":"Victor","lastName":"svarvski","email":"victorjmartinez@me.com","accountId":"jsh1"},"cartItems":[{"name":"Corner chair","quantity":1,"price":"23.35"}]}
+{"orderId":"ab9992","checkoutTime":"1554076798","amountUSD":"83","accountOwner":{"firstName":"Victor","lastName":"Martinez","email":"victorjmartinez@me.com","accountId":"abc1"},"cartItems":[{"name":"Stuffed bear","quantity":1,"price":"80"}]}
+{"orderId":"e9993","checkoutTime":"1554076798","amountUSD":"34.97","accountOwner":{"firstName":"Davidov","lastName":"bartiv","email":"davidova@gmail.com","accountId":"pdj8"},"cartItems":[{"name":"mac laptop (7's hand)","quantity":1,"price":"34.97"}]}
+{"orderId":"p9994","checkoutTime":"1561276368","amountUSD":"90","accountOwner":{"firstName":"natasha","lastName":"polaniza","email":"nata67@me.com","accountId":"jsb7"},"cartItems":[{"name":"ring","quantity":2,"price":"45"}]}
