@@ -2,6 +2,7 @@ import atexit
 import csv
 from typing.io import TextIO
 
+from consts import *
 import formatters
 
 
@@ -17,7 +18,10 @@ class Item:
 
 
 def parse_order_item(order) -> Item:
-    return Item(float(order["itemPrice"]), int(order["itemQuantity"]), order["itemName"])
+    return Item(
+        float(order[ITEM_PRICE]),
+        int(order[ITEM_QUANTITY]),
+        order[ITEM_NAME])
 
 
 class Owner:
@@ -35,10 +39,10 @@ class Owner:
 
 def parse_account_owner(order) -> Owner:
     return Owner(
-        order["firstName"],
-        order.get("lastName"),
-        order.get("email"),
-        order.get("accountId")
+        order[FIRST_NAME],
+        order.get(LAST_NAME),
+        order.get(EMAIL),
+        order.get(ACCOUNT_ID)
     )
 
 
@@ -70,11 +74,11 @@ class Reader:
 
 
 def is_main_order(order):
-    return all(i in order for i in ["orderId", "checkoutTime", "itemName", "itemPrice", "itemQuantity"])
+    return all(i in order for i in [ORDER_ID, CHECKOUT_TIME, ITEM_NAME, ITEM_PRICE, ITEM_QUANTITY])
 
 
 def is_accounts_order(order):
-    return all(i in order for i in ["orderId", "firstName", "lastName", "email", "accountId", "amountUSD"])
+    return all(i in order for i in [ORDER_ID, FIRST_NAME, LAST_NAME, EMAIL, ACCOUNT_ID, AMOUNT])
 
 
 def get_order_from_row(reader: Reader, row: list[str]) -> dict:

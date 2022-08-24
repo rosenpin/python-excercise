@@ -20,6 +20,8 @@ import jsons
 import formatters
 import parser
 
+from consts import *
+
 DEFAULT_ID = -1
 OUTPUT_FILE = "output.json"
 
@@ -42,7 +44,7 @@ def create_base_order_item(order) -> Order:
     if not parser.is_accounts_order(order):
         raise Exception("Unexpected format detected when expected main order item for order id %s" % order.orderId)
 
-    return Order(order["orderId"], parser.parse_account_owner(order), order["amountUSD"])
+    return Order(order[ORDER_ID], parser.parse_account_owner(order), order[AMOUNT])
 
 
 def add_item_to_order(base_order: Order, order: dict):
@@ -50,7 +52,7 @@ def add_item_to_order(base_order: Order, order: dict):
         raise Exception("Unexpected format detected when expected main order item for order id %s" % base_order.orderId)
 
     base_order.cartItems.append(parser.parse_order_item(order))
-    base_order.checkoutTime = order["checkoutTime"]
+    base_order.checkoutTime = order[CHECKOUT_TIME]
 
 
 def append_order_to_file(order):
@@ -78,7 +80,7 @@ def main():
         order_dict = parser.get_order_from_row(accounts_csv, account_row)
         current_order = create_base_order_item(order_dict)
 
-        while main_order_dict["orderId"] == current_order.orderId:
+        while main_order_dict[ORDER_ID] == current_order.orderId:
             add_item_to_order(current_order, main_order_dict)
             main_order_dict = parser.get_order_from_row(main_csv, next(main_csv.reader))
 

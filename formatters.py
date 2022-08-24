@@ -1,4 +1,5 @@
 import utils
+from consts import *
 
 _RENAME = "_rename"
 _APPLY = "_apply"
@@ -7,11 +8,11 @@ _APPLY = "_apply"
 FORMATTERS = {
     "main": {
         _RENAME: {
-            "id": "orderId",
-            "time": "checkoutTime",
-            "item name": "itemName",
-            "item amount (USD)": "itemPrice",
-            "item quantity": "itemQuantity",
+            "id": ORDER_ID,
+            "time": CHECKOUT_TIME,
+            "item name": ITEM_NAME,
+            "item amount (USD)": ITEM_PRICE,
+            "item quantity": ITEM_QUANTITY,
         },
         _APPLY: {
             "time": utils.format_ymd_time_to_unix
@@ -19,8 +20,8 @@ FORMATTERS = {
     },
     "accounts": {
         _RENAME: {
-            "id": "orderId",
-            "orderFullAmount": "amountUSD",
+            "id": ORDER_ID,
+            "orderFullAmount": AMOUNT,
         },
     }
 }
